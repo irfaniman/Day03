@@ -7,4 +7,13 @@ public class RemoteControl {
     public RemoteControl(Controllable c) {
         this.control = c;
     }
+
+    public void start() {
+        this.control.start();
+    }
+
+    public void stop() {
+        this.control.stop();
+    }
+
 }

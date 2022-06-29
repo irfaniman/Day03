@@ -1,59 +1,60 @@
 package myapp.core;
 
+// Class
 public class Car implements Controllable {
 
     // properties, members
     private String colour;
-    private String make;
+    protected String make;
     private Integer engineCapacity;
     private Boolean started = false;
-    private long startedSince;
+    public long startedSince;
 
-    public Car() {
-        System.out.println("*** Instantiating Car Object");
+    // Default constructor
+    public Car() { 
+        System.out.println("*** Instantiating Car object");
         this.colour = "red";
     }
-
     public Car(Integer capacity) {
-        this.engineCapacity= capacity;
-    }
-    public void setColour(String c) {
-        this.colour = c;
-    }
-
-    public String getColour() {
-        return this.colour;
-    }
-
-    public void setEngineCapacity (Integer capacity) {
         this.engineCapacity = capacity;
     }
-
-    public Integer getEngineCapacity() {
-        return this.engineCapacity;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public void setMake(String make) {
+    public Car(String colour, String make) {
+        this.colour = colour;
         this.make = make;
     }
 
+    public String getColour() {
+        return colour;
+    }
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+    public String getMake() {
+        return make;
+    }
+    public void setMake(String make) {
+        this.make = make;
+    }
+    public Integer getEngineCapacity() {
+        return engineCapacity;
+    }
+    public void setEngineCapacity(Integer engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
     public Boolean isStarted() {
         return started;
     }
-
+    public Boolean getStarted() {
+        return started;
+    }
     public void setStarted(Boolean started) {
         this.started = started;
     }
-
-    public long getDrivingDuration () {
-        if (isStarted())
-            // convert to ms -> sec
-            return(System.currentTimeMillis() = this.startedSince) / 1000;
-        return -1l; // or can use (long)-1;
+    public Long getDrivingDuration() {
+        if (this.isStarted())
+            // Convert to ms -> sec
+            return (System.currentTimeMillis() - this.startedSince) / 1000;
+        return (long)-1;
     }
 
     // behaviour - methods
@@ -61,13 +62,12 @@ public class Car implements Controllable {
         if (this.started) {
             System.out.println("Your car is running");
         } else {
-            System.out.println("Vroom....");
+            System.out.println("Vroom.....");
             this.started = true;
-            //  Since 0000 Jan 1 1970
+            // Since 0000 Jan 1 1970
             this.startedSince = System.currentTimeMillis();
         }
     }
-
     public void stop() {
         if (!this.started) {
             System.out.println("Your car is not running");

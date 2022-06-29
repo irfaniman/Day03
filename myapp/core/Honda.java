@@ -8,10 +8,9 @@ public class Honda extends Car {
 
     public void accelerate() {
         System.out.println("Accelerating...");
-
     }
-    
-    public void stop() {
-        System.out.println("Stopping...Stopped");
+
+    public void stop(Integer count) {
+        System.out.printf("Stopping in %d seconds\n");
     }
 }

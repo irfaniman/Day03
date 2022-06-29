@@ -1,14 +1,21 @@
 package myapp.core;
 
+import java.rmi.Remote;
+
 public class MainRemote {
 
     public static void main(String[] args) {
-        honda h = new Honda ();
+        Honda h = new Honda();
         Computer myNotebook = new Computer();
 
+        Controllable ctrl = new Honda();
+		///Controllable ctrlb = new String();
+
         RemoteControl rm = new RemoteControl(h);
-        RemoteControl 
+        RemoteControl rmNotebook = new RemoteControl(myNotebook);
+
+        rm.start();
+        rmNotebook.start();
 
     }
-    
 }
